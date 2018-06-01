@@ -3,4 +3,9 @@
 # IN: X.509 certificate in PEM format
 # OUT: Decoded certificate (using openssl)
 
+if [ ! -x /usr/bin/openssls ]; then
+    echo "Could not find /usr/bin/openssl"
+    exit 1
+fi
+
 /usr/bin/openssl x509 -inform PEM -text -fingerprint

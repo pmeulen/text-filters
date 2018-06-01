@@ -3,4 +3,9 @@
 # IN: XML
 # OUT: XML (reformatted)
 
+if [ "`which xmllint`" == "" ]; then
+    echo "Could not find xmllint in path"
+    exit 1
+fi
+
 xmllint --c14n - | XMLLINT_INDENT=$'\t' xmllint --encode UTF-8 --format -

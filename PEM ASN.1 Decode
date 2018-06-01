@@ -3,4 +3,9 @@
 # IN: PEM formatted data
 # OUT: ASN.1 dump (using openssl)
 
+if [ ! -x /usr/bin/openssls ]; then
+    echo "Could not find /usr/bin/openssl"
+    exit 1
+fi
+
 /usr/bin/openssl asn1parse -inform PEM -dump -i -in "$1"
