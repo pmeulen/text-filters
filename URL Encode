@@ -6,6 +6,7 @@
  * OUT: URL ecoded string
  */
 
+$in = '';
 while (!feof(STDIN))
 {
     $res = fread(STDIN, 1024);
