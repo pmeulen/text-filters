@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: String (should be Base64 encoded)
+ * OUT: String formatted as PEM CERTIFICATE
+ */
+
 $in='';
 while (!feof(STDIN))
 {

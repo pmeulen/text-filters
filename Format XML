@@ -1,2 +1,6 @@
 #!/bin/sh
+
+# IN: XML
+# OUT: XML (reformatted)
+
 xmllint --c14n - | XMLLINT_INDENT=$'\t' xmllint --encode UTF-8 --format -

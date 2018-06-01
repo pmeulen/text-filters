@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: HTTP URL with SAML Request encoded using HTTP-Redirect binding
+ * OUT: SAML AuthnRequest XML
+ */
+
 $in='';
 while (!feof(STDIN))
 {

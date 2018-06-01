@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: String
+ * OUT: Base64 encoded string
+ */
+
 $in='';
 while (!feof(STDIN))
 {

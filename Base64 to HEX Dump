@@ -1,6 +1,11 @@
 #!/usr/bin/php
 <?php
 
+/*
+ * IN: Base64 encoded string
+ * OUT: ACSII HEX dump of the Base64 decoded string
+ */
+
 function hex_dump($data, $newline="\n")
 {
   static $from = '';

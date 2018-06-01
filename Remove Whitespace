@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: String
+ * OUT: String with all CR, LF, tab and space characters removed
+ */
+
 $in='';
 while (!feof(STDIN))
 {

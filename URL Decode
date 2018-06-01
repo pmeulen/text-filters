@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: URL encoded string
+ * OUT: URL decoded string
+ */
+
 while (!feof(STDIN))
 {
     $res = fread(STDIN, 1024);

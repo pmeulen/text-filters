@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: string
+ * OUT: URL ecoded string
+ */
+
 while (!feof(STDIN))
 {
     $res = fread(STDIN, 1024);

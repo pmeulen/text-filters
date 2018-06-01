@@ -1,5 +1,11 @@
 #!/usr/bin/php
 <?php
+
+/*
+ * IN: SAMLRequest
+ * OUT: Value of the SAMLRequest HTTP GET parameter encoded for use with HTTP-Redirect binding
+ */
+
 $in='';
 while (!feof(STDIN))
 {

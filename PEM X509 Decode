@@ -1,2 +1,6 @@
 #!/bin/sh
+
+# IN: X.509 certificate in PEM format
+# OUT: Decoded certificate (using openssl)
+
 /usr/bin/openssl x509 -inform PEM -text -fingerprint

@@ -1,2 +1,6 @@
 #!/bin/sh
+
+# IN: PEM formatted data
+# OUT: ASN.1 dump (using openssl)
+
 /usr/bin/openssl asn1parse -inform PEM -dump -i -in "$1"
