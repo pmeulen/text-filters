@@ -1,0 +1,31 @@
+#!/usr/bin/php
+<?php
+
+/*
+ * IN: Base64 encoded string
+ * OUT: ACSII HEX
+ */
+
+$in='';
+while (!feof(STDIN))
+{
+    $res = fread(STDIN, 1024);
+    if (false === $res)
+    {
+    	fwrite(STDERR, "error reading from stdin");
+	    exit(3);
+	}
+    $in .= $res;
+}
+$result=hex2bin($in);
+if (false===$result)
+{
+	fwrite(STDERR, "hex2bin failed");
+	exit(3);
+}
+
+$result=base64_encode($result);
+
+fwrite(STDOUT, $result);
+
+exit(0);
