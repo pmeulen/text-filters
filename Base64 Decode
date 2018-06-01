@@ -20,7 +20,7 @@ while (!feof(STDIN))
 $result=base64_decode($in);
 if (false===$result)
 {
-	fwrite(STDERR, "base64_encode failed");
+	fwrite(STDERR, "base64_decode failed");
 	exit(3);
 }
 
