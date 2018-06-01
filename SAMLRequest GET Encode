@@ -35,4 +35,4 @@ if (false===$result)
 fwrite(STDOUT, $result);
 
 exit(0);
-?>
+

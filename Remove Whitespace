@@ -17,4 +17,3 @@ $result=str_replace( array("\r\n", "\n", "\r", "\t", ' '), '', $in);
 fwrite(STDOUT, $result);
 
 exit(0);
-?>

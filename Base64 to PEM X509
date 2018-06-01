@@ -17,4 +17,3 @@ $result="-----BEGIN CERTIFICATE-----\n".chunk_split(str_replace(array("\n","\r",
 fwrite(STDOUT, $result);
 
 exit(0);
-?>
