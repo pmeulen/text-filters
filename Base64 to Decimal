@@ -1,0 +1,44 @@
+#!/usr/bin/php
+<?php
+
+/* Interpret Base64 encoded string as a binary number, 8 bits per character, MSB first
+ * IN: Base64 encoded String
+ * OUT: Decimal equivalent of string
+ */
+
+$in='';
+while (!feof(STDIN))
+{
+    $res = fread(STDIN, 1024);
+    if (false === $res)
+    {
+        fwrite(STDERR, "error reading from stdin");
+        exit(3);
+    }
+    $in .= $res;
+}
+
+$result=base64_decode($in);
+if (false===$result)
+{
+    fwrite(STDERR, "base64_decode failed");
+    exit(3);
+}
+
+$gmp=gmp_import($result);
+if (FALSE === $gmp) {
+    fwrite(STDERR, "gmp_import failed");
+    exit(3);
+}
+
+$result=gmp_strval($gmp, 10);
+if (false===$result)
+{
+    fwrite(STDERR, "base64_encode failed");
+    exit(3);
+}
+
+fwrite(STDOUT, $result);
+
+exit(0);
+
