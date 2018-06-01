@@ -18,6 +18,16 @@ while (!feof(STDIN))
     $in .= $res;
 }
 
+# Cut SAML AuthnRequest from the URL
+$startpos=strpos($in, 'SAMLRequest=');
+if (FALSE !== $startpos) {
+    $in=substr($in, $startpos + 12);
+}
+$endpos=strpos($in, '&');
+if (FALSE !== $endpos) {
+    $in=substr($in, 0, $endpos);
+}
+
 $result=urldecode($in);
 if (false===$result)
 {
