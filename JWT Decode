@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# IN: JWT (String)
+# OUT: Decoded JWT
+
+# The JWT is received from stdin, split it into its three parts
+IFS='.' read -r -a parts <<< "$(cat)"
+
+# Check if the JWT has three parts
+if [ ${#parts[@]} -ne 3 ]; then
+    echo "Invalid JWT: A JWT must have three parts, separated by a dot (.)"
+    exit 1
+fi
+
+# Get the location of this script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+# Use the "Base64URL Decode" filter to decode the header
+header=$(echo "${parts[0]}" | "$DIR/Base64URL Decode")
+# Use the "Base64URL Decode" filter to decode the payload
+payload=$(echo "${parts[1]}" | "$DIR/Base64URL Decode")
+# Leave the signature as is
+signature="${parts[2]}"
+
+echo "Header: $header"
+echo "Payload: $payload"
+echo "Signature: $signature"
+
+exit 0

@@ -1,11 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # IN: PEM formatted data
 # OUT: ASN.1 dump (using openssl)
 
-if [ ! -x /usr/bin/openssls ]; then
-    echo "Could not find /usr/bin/openssl"
+# Check if openssl is available
+if ! command -v openssl &> /dev/null
+then
+    echo "openssl could not be found"
     exit 1
 fi
 
-/usr/bin/openssl asn1parse -inform PEM -dump -i -in "$1"
+openssl asn1parse -inform PEM -dump -i -in "$1"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# IN: Base64 encoded X.509 certificate, e.g. as found in SAML metadata
+
+# Use "Base64 to PEM X590" filter to convert the base string to PEM format
+# Then use the "PEM X509 Decode" filter to decode the certificate
+
+# Get the location of this script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+# Send stdin to the "Base64 to PEM X590" filter and then to the "PEM X509 Decode" filter
+"$DIR/Base64 to PEM X509" | "$DIR/PEM X509 Decode"

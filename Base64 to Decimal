@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 
 /* Interpret Base64 encoded string as a binary number, 8 bits per character, MSB first

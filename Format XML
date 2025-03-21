@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # IN: XML
 # OUT: XML (reformatted)
 
-if [ "`which xmllint`" == "" ]; then
-    echo "Could not find xmllint in path"
+# Check is xmllint is available
+if ! command -v xmllint &> /dev/null
+then
+    echo "xmllint could not be found"
     exit 1
 fi
 

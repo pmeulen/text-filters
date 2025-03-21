@@ -17,12 +17,18 @@ while (!feof(STDIN))
 	}
     $in .= $res;
 }
+
+# First encode to Base64, then transform to Base64URL
 $result=base64_encode($in);
 if (false===$result)
 {
 	fwrite(STDERR, "base64_encode failed");
 	exit(3);
 }
+# Replace + with - and / with _
+$result = str_replace(array('+', '/'), array('-', '_'), $result);
+# Remove padding
+$result = rtrim($result, '=');
 
 fwrite(STDOUT, $result);
 

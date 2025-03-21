@@ -17,6 +17,12 @@ while (!feof(STDIN))
 	}
     $in .= $res;
 }
+# transform Base64URL to Base64
+# Undo substitution of URL-unsafe characters
+$in = str_replace(array('-', '_'), array('+', '/'), $in);
+# Add padding
+$in .= str_repeat('=', 3 - (3 + strlen($in)) % 4);
+# Decode
 $result=base64_decode($in);
 if (false===$result)
 {
